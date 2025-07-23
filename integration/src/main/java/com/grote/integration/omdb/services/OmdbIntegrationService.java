@@ -3,7 +3,9 @@ package com.grote.integration.omdb.services;
 import com.grote.DTOs.OmdbParamsIntegration;
 import com.grote.integration.omdb.feign.OmdbFeign;
 import com.grote.mappers.OmdbSearchMapper;
+import com.grote.mappers.OmdbTitleMapper;
 import com.grote.models.OmdbSearch;
+import com.grote.models.OmdbTitle;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,13 @@ public class OmdbIntegrationService {
                 params.getY(),
                 params.getPage());
         return OmdbSearchMapper.mapToModel(search);
+    }
+    public OmdbTitle getTitle(OmdbParamsIntegration params){
+        var search = feign.getTitle(params.getT(),
+                apiKey,
+                params.getType(),
+                params.getY(),
+                params.getPage());
+        return OmdbTitleMapper.mapToModel(search);
     }
 }

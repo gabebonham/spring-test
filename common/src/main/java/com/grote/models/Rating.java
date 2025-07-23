@@ -9,11 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OmdbParams {
-    private String s;
-    private String type;
-    private String y;
-    private Integer page;
-    private String i;
-    private String t;
+public class Rating {
+    private String Source;
+    private String Value;
 }

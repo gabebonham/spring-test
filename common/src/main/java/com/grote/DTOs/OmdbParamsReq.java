@@ -14,4 +14,6 @@ public class OmdbParamsReq {
     private String type;
     private String y;
     private Integer page;
+    private String i;
+    private String t;
 }

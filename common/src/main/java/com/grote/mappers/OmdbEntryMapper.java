@@ -6,6 +6,7 @@ import com.grote.models.OmdbEntry;
 
 public class OmdbEntryMapper {
     public static OmdbEntry mapToModel(OmdbEntryIntegration integration){
+        if (integration == null) return null;
         return OmdbEntry.builder()
                 .Title(integration.getTitle())
                 .Year(integration.getYear())
@@ -15,6 +16,7 @@ public class OmdbEntryMapper {
                 .build();
     }
     public static OmdbEntryRes mapToRes(OmdbEntry model){
+        if (model == null) return null;
         return OmdbEntryRes.builder()
                 .Title(model.getTitle())
                 .Year(model.getYear())
