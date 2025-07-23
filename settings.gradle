@@ -1,14 +1,15 @@
-pluginManagement {
-    repositories {
-        maven { url = 'https://repo.spring.io/snapshot' }
-        gradlePluginPortal()
-    }
-}
+
 rootProject.name = 'test'
 
-include 'controller'
-include 'common'
-include 'repository'
-include 'impl'
-include 'integration'
 include 'app'
+project(":app").projectDir = file("app")
+include 'controller'
+project(":controller").projectDir = file("controller")
+include 'common'
+project(":common").projectDir = file("common")
+include 'repository'
+project(":repository").projectDir = file("repository")
+include 'impl'
+project(":impl").projectDir = file("impl")
+include 'integration'
+project(":integration").projectDir = file("integration")
