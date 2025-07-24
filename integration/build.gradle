@@ -6,17 +6,13 @@ plugins {
 
 group = 'com.grote'
 version = '0.0.1-SNAPSHOT'
-bootJar {
-    mainClass = 'com.grote.Main'
-}
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-ext {
-    set('springCloudVersion', "2023.0.0")
-}
+
 
 configurations {
     compileOnly {
@@ -31,9 +27,8 @@ repositories {
 
 dependencies {
     implementation project(":common")
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.2.1'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
-    implementation 'org.springframework.cloud:spring-cloud-openfeign-core:3.0.2'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'

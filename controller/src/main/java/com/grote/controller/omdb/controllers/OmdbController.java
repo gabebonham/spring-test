@@ -3,16 +3,17 @@ package com.grote.controller.omdb.controllers;
 import com.grote.DTOs.OmdbParamsReq;
 import com.grote.controller.omdb.facaes.OmdbControllerFacade;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("omdb")
-@AllArgsConstructor
+@RequestMapping("/omdb")
+@RequiredArgsConstructor
 public class OmdbController {
-    private OmdbControllerFacade facade;
+    private final OmdbControllerFacade facade;
 
-    @PostMapping("search")
+    @PostMapping("/search")
     public ResponseEntity<?> getSearch(@RequestBody OmdbParamsReq req){
 //        try {
 //            return ResponseEntity.ok(facade.getSearch(req));
@@ -22,7 +23,7 @@ public class OmdbController {
         return ResponseEntity.ok(facade.getSearch(req));
 
     }
-    @PostMapping("title")
+    @PostMapping("/title")
     public ResponseEntity<?> getTitle(@RequestBody OmdbParamsReq req){
 //        try {
 //            return ResponseEntity.ok(facade.getTitle(req));

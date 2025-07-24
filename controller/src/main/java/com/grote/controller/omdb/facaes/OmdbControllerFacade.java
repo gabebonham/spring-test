@@ -5,13 +5,13 @@ import com.grote.DTOs.OmdbSearchRes;
 import com.grote.DTOs.OmdbTitleRes;
 import com.grote.impl.omdb.services.OmdbService;
 import com.grote.mappers.OmdbParamsMapper;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OmdbControllerFacade {
-    private OmdbService service;
+    private final OmdbService service;
     public OmdbSearchRes getSearch(OmdbParamsReq req){
         return service.getSearch(OmdbParamsMapper.mapToModel(req));
     }

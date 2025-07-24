@@ -69,6 +69,7 @@ public class OmdbTitleMapper {
     }
     private static List<RatingRes> mapRatingsRes(List<Rating> ratings) {
         if (ratings == null) return null;
+        if (ratings.isEmpty()) return null;
         return ratings.stream()
                 .map(r -> RatingRes.builder()
                         .Source(r.getSource())
@@ -78,6 +79,7 @@ public class OmdbTitleMapper {
     }
     private static List<Rating> mapRatings(List<RatingIntegration> ratings) {
         if (ratings == null) return null;
+        if (ratings.isEmpty()) return null;
         return ratings.stream()
                 .map(r -> Rating.builder()
                         .Source(r.getSource())

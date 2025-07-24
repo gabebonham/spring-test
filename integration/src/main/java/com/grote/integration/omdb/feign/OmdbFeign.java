@@ -3,22 +3,25 @@ package com.grote.integration.omdb.feign;
 import com.grote.DTOs.OmdbSearchIntegration;
 import com.grote.DTOs.OmdbTitleIntegration;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(url = "${omdb.url}")
+@FeignClient(name = "omdbClient", url = "${omdb.url}")
+@Component
 public interface OmdbFeign {
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    OmdbSearchIntegration getSearch(@RequestParam("s") String search,
-                                    @RequestParam("apiKey") String apiKey,
-                                    @RequestParam("type") String type,
-                                    @RequestParam("y") String year,
-                                    @RequestParam("page") Integer page);
-    @RequestMapping(method = RequestMethod.GET, value = "/")
-    OmdbTitleIntegration getTitle(@RequestParam("t") String title,
-                                  @RequestParam("apiKey") String apiKey,
-                                  @RequestParam("type") String type,
-                                  @RequestParam("y") String year,
-                                  @RequestParam("page") Integer page);
+    @GetMapping("/")
+    OmdbSearchIntegration getSearch(@RequestParam(value="apiKey") String apiKey,
+                                    @RequestParam(value="s", required = false) String search,
+                                    @RequestParam(value="type", required = false) String type,
+                                    @RequestParam(value="y", required = false) String year,
+                                    @RequestParam(value="page", required = false) String page);
+    @GetMapping("/")
+    OmdbTitleIntegration getTitle(@RequestParam(value="apiKey") String apiKey,
+                                  @RequestParam(value="t", required = false) String title,
+                                  @RequestParam(value="i", required = false) String id,
+                                  @RequestParam(value="type", required = false) String type,
+                                  @RequestParam(value="y", required = false) String year,
+                                  @RequestParam(value="plot", required = false) String plot,
+                                  @RequestParam(value="page", required = false) String page);
 }

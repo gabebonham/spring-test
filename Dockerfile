@@ -1,9 +1,9 @@
-FROM openjdk:21-jdk-slim
+FROM gradle:8-jdk21 AS build
+WORKDIR /test
+COPY . .
+RUN ./gradlew clean :app:bootJar --no-daemon
 
-WORKDIR /app
-
-COPY app/build/libs/app-1.0.0.jar app.jar
-
-EXPOSE 8080
-
+FROM eclipse-temurin:21-jre
+WORKDIR /test
+COPY --from=build /test/app/build/libs/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]

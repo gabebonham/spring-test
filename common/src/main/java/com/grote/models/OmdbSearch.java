@@ -1,5 +1,6 @@
 package com.grote.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,5 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OmdbSearch {
+    @JsonProperty("Search")
     private List<OmdbEntry> Search;
 }

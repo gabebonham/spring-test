@@ -1,5 +1,6 @@
 package com.grote.DTOs;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +11,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OmdbParamsReq {
+    @JsonProperty("s")
     private String s;
-    private String type;
-    private String y;
-    private Integer page;
-    private String i;
+    @JsonProperty("t")
     private String t;
+    @JsonProperty("type")
+    private String type;
+    @JsonProperty("y")
+    private String y;
+    @JsonProperty("page")
+    private String page;
+    @JsonProperty("i")
+    private String i;
 }
+
