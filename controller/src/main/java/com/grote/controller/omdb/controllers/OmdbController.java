@@ -15,22 +15,20 @@ public class OmdbController {
 
     @PostMapping("/search")
     public ResponseEntity<?> getSearch(@RequestBody OmdbParamsReq req){
-//        try {
-//            return ResponseEntity.ok(facade.getSearch(req));
-//        } catch (Exception e) {
-//            return ResponseEntity.unprocessableEntity().body(e.getMessage());
-//        }
-        return ResponseEntity.ok(facade.getSearch(req));
+       try {
+           return ResponseEntity.ok(facade.getSearch(req));
+       } catch (Exception e) {
+           return ResponseEntity.unprocessableEntity().body(e.getMessage());
+       }
 
     }
     @PostMapping("/title")
     public ResponseEntity<?> getTitle(@RequestBody OmdbParamsReq req){
-//        try {
-//            return ResponseEntity.ok(facade.getTitle(req));
-//        } catch (Exception e) {
-//            return ResponseEntity.unprocessableEntity().body(e.getMessage());
-//        }
-        return ResponseEntity.ok(facade.getTitle(req));
+       try {
+           return ResponseEntity.ok(facade.getTitle(req));
+       } catch (Exception e) {
+           return ResponseEntity.unprocessableEntity().body(e.getMessage());
+       }
 
     }
 }
