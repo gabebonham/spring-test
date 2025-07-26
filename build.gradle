@@ -29,6 +29,9 @@ repositories {
 }
 
 dependencies {
+	implementation 'com.github.vladimir-bukhtoyarov:bucket4j-jcache:7.6.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+	implementation  'org.springframework.boot:spring-boot-starter-cache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-context:3.1.5'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
